@@ -5,19 +5,22 @@
 
 import os.path
 
-def menu():
+def startup():
     #Welcome user and provide sys version
     print("Welcome to chatbot version 0.5!")
 
-    global f
     #Provide file path, check if file exits
-    if os.path.exists("/users/daniel/python/chatbot_settings.txt"):
+    if os.path.exists("/users/daniel/dgisolfi/ChatBot/chatbot_settings.txt"):
         #if file exits read it
         f = open("chatbot_settings.txt", "r")
-        f.read("chatbot_settings.txt", "r")
+        lines = f.readlines()
+        #read line 1
+        botName = lines[0]
+        #read line 2
+        userName = lines[1]
+        #f.close()
 
     else:
-        print("file doesnt exit")
         #if it does not write a one
         f = open("chatbot_settings.txt","w+")
         # get name of chatbot from user
@@ -25,12 +28,15 @@ def menu():
         # get name of user
         userName = input("Enter the name of the user:\n")
         #write botname
-        f.write("botname = " + botName + "\n")
+        f.write(botName + "\n")
         #write userName
-        f.write("userName = " + userName + "\n")
+        f.write(userName+ "\n")
+        #f.close()
 
-    #print("Hello " + userName + " I am " + botName)
+    menu(botName,userName)
 
+def menu(botName, userName):
+    print("Hello " + userName + " I am " + botName)
 
 def readInput():
     cmd = input("How Can I help you?\n")
@@ -43,16 +49,15 @@ def methodController(cmd):
 
 def settings(cmd):
     print("Settings:")
-    f.read("chatbot_settings.txt", "r")
+    f.read()
 
 
 def chat(cmd):
     pass
 
 def main():
-    menu()
+    startup()
     readInput()
-    f.close()
 
 main()
 
