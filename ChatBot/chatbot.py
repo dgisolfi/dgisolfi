@@ -28,9 +28,9 @@ def startup():
         # get name of user
         userName = input("Enter the name of the user:\n")
         #write botname
-        f.write(botName + "\n")
+        f.writelines(botName + "\n")
         #write userName
-        f.write(userName+ "\n")
+        f.writelines(userName+ "\n")
         #f.close()
 
     menu(botName,userName)
