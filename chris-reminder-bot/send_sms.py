@@ -35,6 +35,9 @@ def reminder():
 		print("The following reminder successfully sent to Christopher Macaroni\n" + my_msg + "\n")
 
 		#set the fucntion to sleep for 24hrs then run again, and loop
+		print "Start : %s" % time.ctime()
 		time.sleep(3600)
+		print "End : %s" % time.ctime()
+		
 
 reminder()
