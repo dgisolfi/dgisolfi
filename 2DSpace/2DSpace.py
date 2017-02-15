@@ -11,17 +11,14 @@ root.wm_iconbitmap("spaceIcon.ico")
 canvas = Canvas(root, width=300, height=200)
 canvas.configure(background="black")
 
+x = 150
+y = 100
 #create player object
-
-canvas.create_rectangle(0,0,20,20, fill="white")
-
-
-
-def move():
-	x = 150
-	y = 100
+def move(XCORD, YCORD):
+	canvas.delete(ALL)
+	#||||||||||||||||||||||(LENGTH,HEIGHT,XCORD,YCORD)
 	canvas.create_rectangle(x,y,20,20, fill="white")
-	root.update()
+	
 
 
 def quit(event):
@@ -30,16 +27,23 @@ def quit(event):
 
 def upKey(event):
 	print("uppy")
-	move()
+	y =- 20
+	move(x,y)
 
 def downKey(event):
-	print "down key pressed"
+	print("down key pressed")
+	y =+ 20
+	move(x,y)
 
 def leftKey(event):
-    print "Left key pressed"
+    print("Left key pressed")
+    x =- 20
+    move(x,y)
 
 def rightKey(event):
-    print "Right key pressed"
+    print("Right key pressed")
+    x =+ 20
+    move(x,y)
 
 #frame = Frame(root, width=300, height=200)
 #bind keys to there corosponding methods
@@ -61,8 +65,5 @@ canvas.pack()
 root.mainloop()
 
 
-
-def main():
-	move()
 
 
