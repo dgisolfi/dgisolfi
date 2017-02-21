@@ -8,61 +8,66 @@ from Tkinter import *
 root = Tk()
 root.title("2D Space")
 root.wm_iconbitmap("spaceIcon.ico")
-canvas = Canvas(root, width=300, height=200)
-canvas.configure(background="black")
 
-x = 150
-y = 100
-#create player object
-def move(XCORD, YCORD):
-	canvas.delete(ALL)
-	#||||||||||||||||||||||(LENGTH,HEIGHT,XCORD,YCORD)
-	canvas.create_rectangle(x,y,20,20, fill="white")
+canvas = Canvas(root, width=600, height=600)
+canvas.configure(background="light blue")
+
+
+def start():
+	#||||||||||||||||||||||(x1,y1,x2,y2,)
+	global player
+	player = canvas.create_rectangle(290,290,310,310, fill="black")
 	
 
 
-def quit(event):
-	#quit program
-	root.quit()
+#create player object
+def move(direct):
+	x = 0
+	y = 0
+	if direct == "up":
+		y = -20
+	elif direct == "down":
+		y = 20
+	elif direct == "left":
+		x = -20
+	elif direct == "right":
+		x = 20
+	canvas.move(player, x, y)	
 
-def upKey(event):
-	print("uppy")
-	y =- 20
-	move(x,y)
+def gameLoop():
+	
+	def quit(event):
+		#quit program
+		root.quit()
 
-def downKey(event):
-	print("down key pressed")
-	y =+ 20
-	move(x,y)
+	def upKey(event):
+		move("up")
 
-def leftKey(event):
-    print("Left key pressed")
-    x =- 20
-    move(x,y)
+	def downKey(event):
+		move("down")
 
-def rightKey(event):
-    print("Right key pressed")
-    x =+ 20
-    move(x,y)
+	def leftKey(event):
+		move("left")
 
-#frame = Frame(root, width=300, height=200)
-#bind keys to there corosponding methods
-root.bind("<q>", quit)
-root.bind("<Up>", upKey)
-root.bind("<Down>", downKey)
-root.bind("<Left>", leftKey)
-root.bind("<Right>", rightKey)
+	def rightKey(event):
+		move("right")
 
+		#bind keys to there corosponding methods
+	root.bind("<q>", quit)
+	root.bind("<Up>", upKey)
+	root.bind("<Down>", downKey)
+	root.bind("<Left>", leftKey)
+	root.bind("<Right>", rightKey)
 
-
-#canvas.create_rectangle(0,0,150,150, fill="yellow")
+	#Pack canvas and call root
+	canvas.pack()
+	root.mainloop()
 
 
-
-#Pack Frame and call root
-#frame.pack()
-canvas.pack()
-root.mainloop()
+def main():
+	start()
+	gameLoop()
+main()
 
 
 
