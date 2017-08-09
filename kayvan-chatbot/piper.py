@@ -1,44 +1,29 @@
 #Author: Daniel Gisolfi
-#Date: 6/11/17
+#Date: 8/9/17
 #kayvan-chatbot
 #Version 1
 
 
 
 
-from chatterbot import ChatBot
-from chatterbot.trainers import ChatterBotCorpusTrainer
+# from chatterbot import ChatBot
+# from chatterbot.trainers import ChatterBotCorpusTrainer
 
-# from flask import Flask, request, redirect
-# from twilio.twiml.messaging_response import MessagingResponse
+# def main():
+# 	print()
+# 	methodController()
 
-# app = Flask(__name__)
-
-# @app.route("/", methods=['GET', 'POST'])
-# def webhook():
-#     """Respond to incoming calls with a simple text message."""
-
-#     resp = MessagingResponse().message("Hello")
-#     return str(resp)
-
-# if __name__ == "__main__":
-#     app.run(debug=True)
-
-def main():
-	print()
-	methodController()
-
-def methodController():
-	data = raw_input("User: ")
-	conserve(data)
+# def methodController():
+# 	data = raw_input("User: ")
+# 	conserve(data)
 
 
-def conserve(data):
-	bot = ChatBot("Piper", silence_performance_warning=True)
-	bot.set_trainer(ChatterBotCorpusTrainer)
-	bot.train('chatterbot.corpus.english')
-	msg = bot.get_response(data)
-	reply(msg)
+# def conserve(data):
+# 	bot = ChatBot("Piper", silence_performance_warning=True)
+# 	bot.set_trainer(ChatterBotCorpusTrainer)
+# 	bot.train('chatterbot.corpus.english')
+# 	msg = bot.get_response(data)
+# 	reply(msg)
 
 
 
@@ -46,6 +31,8 @@ def conserve(data):
 
 from flask import Flask, request, redirect
 from twilio.twiml.messaging_response import MessagingResponse
+
+from twilio.rest import Client
 
 app = Flask(__name__)
 
@@ -55,21 +42,24 @@ callers = {
     
 }
 
+account_sid = "AC2c6c007c9e84c808e82e8ed6e48bdce3"
+auth_token = "5a443b9bf4a00a376d8a4588eef1d7f3"
+client = Client(account_sid, auth_token)
+
+
 @app.route("/", methods=['GET', 'POST'])
-def reply():
-    """Respond and greet the caller by name."""
 
-    from_number = request.values.get('From', None)
-    if from_number in callers:
-        message = "Hey" callers[from_number] + ", my name is Piper! I`m a bot created by Daniel, I live in a server on the internet:)"
-    else:
-        message = "I dont know you -_- go away."
-
-    resp = MessagingResponse()
-    resp.message(message)
-    print(message)
-
-    return str(resp)
+def webhook():
+	msg = "Hey its piper, heroku server is working"
+	message = client.api.account.messages.create(to= "8452044105",from_="+18456704028", body=msg)
+	print(message.sid)
+#   print(message)
+	return msg
 
 if __name__ == "__main__":
-    app.run(debug=True)
+	app.run(debug=True)
+	
+
+
+
+
