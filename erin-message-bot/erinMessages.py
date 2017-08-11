@@ -7,4 +7,11 @@ messages = [
 	"Your humility is inspiring to those who are watching your success.",
 	"I luv ya erin, and so does marty!",
 	"I hope you have an awsome day",
+	"In the middle of every difficulty lies opportunity.",
+	"You look great today!",
+	"Your outfit is on point!!!",
+	"Hold on, the weekend is almost here.",
+	"Today is gonna be a great day!",
+	"Remember to treat yo self.",
+	"Remember to make every day the best it can be"
 ]
