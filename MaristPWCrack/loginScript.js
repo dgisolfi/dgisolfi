@@ -2,7 +2,7 @@
 // @name         PW cracker
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  Crack a pw on myMarist login to show the IT department their secuerity sucks!
+// @description  Crack a pw on myMarist login to show the IT department their security sucks!
 // @author       Daniel
 // @match        https://login.marist.edu/cas/login
 // @grant        none
