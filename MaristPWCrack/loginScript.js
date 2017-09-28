@@ -9,26 +9,26 @@
 // ==/UserScript==
 
 if (window.location == 'https://login.marist.edu/cas/login') {
-    if (document.getElementById('#password') === null){
-        alert("Starting");
-        var charset = "abcdefghijklmnopqrstuvwxyz0123456789";
-        var myname = ("Daniel");
-        permutations = permut(myname);
-        for (var permutation of permutations){
-            //alert(permutations);
-            //Place password attempt in password textbox
-            
-            username = "stdg1";
-            document.getElementById('#username') = username;
-            //permutations = document.getElementById('#password').text;
-            //Press the submit button
-            //document.getElementsByName('btn-submit').click();
-        }      
+    if(!document.getElementById('password').value){
+        //alert("Starting");
+
+        //var charset = "abcdefghijklmnopqrstuvwxyz0123456789";
+        // var string = "xyz";
+        // permutations = permut(myname);
+        // for (var permutation of permutations){
+        //Place password attempt in password textbox
+        username = "stdg1";
+        document.getElementById('username').value = username;
+        document.getElementById('password').value = permutations;
+        //Press the submit button
+        document.getElementsByName('submit').click();
+        //}
     }
 }
 
+
 function permut(string) {
-    if (string.length < 6) return string; //break condition
+    if (string.length < 2) return string; //break condition
 
     var permutations = []; //array to hold permutations
 
