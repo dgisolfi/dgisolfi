@@ -1,14 +1,14 @@
 # Marist Registration Script
 
-####Original script was written by Evan Hopkins, Antony Liang, Bob Nisco
+#### Original script was written by Evan Hopkins, Antony Liang, Bob Nisco
 
-####Updated script was written by Daniel Gisolfi
+#### Updated script was written by Daniel Gisolfi
 
 The following script was written by Evan Hopkins, Antony Liang, and Bob Nisco in 2012 since then the registrar department has changed the banner system. To update the script, when helping my sister register, I found the new links to the new version of banner and have updated them with the file. The following is a basic guide on how to use this script.
 
 Note: I take no credit for creating this script and give full credit to the above-mentioned creators all I have done is changed the links it is directed to.
 
-##How-To
+## How-To
 
 **Step 1**
 
@@ -58,5 +58,5 @@ If the script is not refreshing the registration page check:
 
 Make sure you have saved the script, otherwise, the random crn numbers I have put into the array will be used as your crns
 
-If the script is broken and you have checked the above suggestions please report an [Issuee](https://github.com/dgisolfi/dgisolfi/issues) through GitHub 
+If the script is broken and you have checked the above suggestions please report an [Issue](https://github.com/dgisolfi/dgisolfi/issues) through GitHub 
 

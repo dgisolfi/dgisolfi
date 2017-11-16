@@ -20,6 +20,10 @@ My completed version of a key-logger
 ### [MaristrPWCrack](https://github.com/dgisolfi/dgisolfi/tree/master/MaristPWCrack)
 A proof of concept script to run through all permutations of possible passwords for the login of Marist College. This is only intended to show my higher ups in the IT department the security risk and not for actual use.
 
+### [MaristRegistrationScript](https://github.com/dgisolfi/dgisolfi/blob/master/MaristRegistrationScript/MaristRegistrationScript.md)
+
+A script written by previous students of marist I have modified to work with current banner system. All credit for original script is given to Evan Hopkins, Antony Liang, Bob Nisco. 
+
 ### [TwitterBot](https://github.com/dgisolfi/dgisolfi/tree/master/TwitterBot)
 Another bot that uses the twitter API to read and posts tweets. This also introduced me to Node.JS
 
