@@ -58,9 +58,11 @@ def methodController(data):
       rules()
     elif "echo" in words: 
       echo(data)
-    elif "derivative" in words:
-      x = int(re.search(r'\d+', text).group())  
-      derivative(x)
+    else
+      converse(data)
+    # elif "derivative" in words:
+    #   x = int(re.search(r'\d+', text).group())  
+    #   derivative(x)
     # elif data['name'] != "Marty":
     #   sendMessage("Starting converse function...")
     #   converse(data)
@@ -71,22 +73,21 @@ def methodController(data):
 def converse(data):
   
   bot = ChatBot("Marty",silence_performance_warning=True)
-  bot.set_trainer(ChatterBotCorpusTrainer)
+  # bot.set_trainer(ChatterBotCorpusTrainer)
   
-  # conversation = [
-  #   "Hello",
-  #   "Hi there!",
-  #   "How are you doing?",
-  #   "I'm doing great.",
-  #   "That is good to hear",
-  #   "Thank you.",
-  #   "You're welcome.",
-  #   "My name is Marty.",
-  #   "I am smarter than you in many ways."
-  # ]
+  conversation = [
+    "Hello",
+    "Hi there!",
+    "How are you doing?",
+    "I'm doing great.",
+    "That is good to hear",
+    "Thank you.",
+    "You're welcome.",
+    "My name is Marty."
+  ]
   
-  # bot.set_trainer(ListTrainer)
-  # bot.train(conversation)
+  bot.set_trainer(ListTrainer)
+  bot.train(conversation)
   bot.train('chatterbot.corpus.english')
   
   msg = bot.get_response(data['text'])
