@@ -49,14 +49,14 @@ Run the script on a computer with a good internet connection a few minutes befor
 
 
 
-###Troubleshooting
+### Troubleshooting
 
 If the script is not refreshing the registration page check:
 * That the tampermonkey is enabled
 * That Registration Script is turned on
 * That you are on the correct above-mentioned site
 
-Make sure you have saved the script, otherwise, the random crn numbers I have put into the array will be used as your crns
+Make sure you have saved the script, otherwise, the random crn numbers I have put into the array will be used as your crn's
 
 If the script is broken and you have checked the above suggestions please report an [Issue](https://github.com/dgisolfi/dgisolfi/issues) through GitHub 
 
