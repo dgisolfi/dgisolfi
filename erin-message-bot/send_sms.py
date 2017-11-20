@@ -6,10 +6,10 @@
 #import all twilio dependencies
 from twilio.rest import Client
 #import time and random modules
-import time, random
+import time, random, datetime
 from random import randint
 #import module with possible messages
-from erinMessages import messages
+from erinMessages import messages, dayCheck
 import os, sys, json
 
 
@@ -26,7 +26,7 @@ def reminder():
 	#get authentication token from config vars
 	auth_token = os.getenv('auth_token')
 	#chose wich cell phone number from the list to direct the message towards
-	my_cell = contacts[1]
+	my_cell = contacts[2]
 	#get twilio account number from config vars
 	my_twilio = os.getenv('my_twilio')
 
@@ -35,15 +35,23 @@ def reminder():
 
 	#create  loop
 	while True:
-		#pick a random message from 'messages' list
-		my_msg = random.choice(messages)
+		#uses the datetime library to get the current date
+		now = datetime.datetime.now()
+		#gets the month
+		month = now.month
+		#gets the day
+		day =  now.day
+
+		#uses the dayCheck function to get the right message else a random one.
+		my_msg = dayCheck(month,day)
+		
 		#send a sms from twilio number to cell with my_msg as text
 		message = client.api.account.messages.create(to=my_cell, from_=my_twilio, body=my_msg)
 		#print a conformation that the task has completed
 		print("Message sent to Erin Gisolfi, Hours until next message:")
 
 		#create a random interval of time between 1 - 8 hours
-		waitTime = randint(10800,43200)
+		waitTime = 120#randint(10800,43200)
 		#print aprox how many hours the function will sleep
 		print(waitTime/60/60)
 
